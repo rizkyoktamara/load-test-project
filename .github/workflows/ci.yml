@@ -102,5 +102,5 @@ jobs:
           sudo apt install k6
           
       - name: Run Smoke Test
-        run: k6 run tests/k6/app-test.js
+        run: k6 run loadtest/script.js
 
