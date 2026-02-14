@@ -104,5 +104,5 @@ jobs:
       - name: Run Smoke Test
         run: k6 run loadtest/script.js
         env:
-          BASE_URL: http://localhost:3000
+          BASE_URL: http://34.176.175.121:3000
 
