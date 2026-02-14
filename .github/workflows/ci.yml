@@ -102,7 +102,11 @@ jobs:
           sudo apt install k6
           
       - name: Run Smoke Test
-        run: k6 run loadtest/script.js
-        env:
-          BASE_URL: http://34.176.175.121:3000
+        run: |
+          docker run --rm \
+          --network host \
+          -e BASE_URL=http://http://34.176.175.121:3000 \
+          -v $(pwd):/scripts \
+          grafana/k6 run /scripts/loadtest/script.js
+
 
