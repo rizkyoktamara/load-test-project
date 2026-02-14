@@ -105,5 +105,5 @@ jobs:
         run: |
           docker run --rm \
           -v ${{ github.workspace }}:/scripts \
-          grafana/k6 run ./loadtest/script.js
+          grafana/k6 run /scripts/loadtest/script.js
 
