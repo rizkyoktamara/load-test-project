@@ -91,11 +91,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Start app
-        run: |
-          npm start &
-          sleep 10
           
       - name: Install k6
         run: |
@@ -107,5 +102,8 @@ jobs:
           sudo apt install k6
           
       - name: Run Smoke Test
-        run: k6 run ./loadtest/script.js
+        run: |
+          docker run --rm \
+          -v ${{ github.workspace }}:/scripts \
+          grafana/k6 run ./loadtest/script.js
 
