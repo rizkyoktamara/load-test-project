@@ -100,6 +100,11 @@ jobs:
           echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
           sudo apt update
           sudo apt install k6
-
+          
+      - name: Debug files
+        run: |
+          pwd
+          ls -R
+          
       - name: Run Smoke Test
         run: k6 run k6/smoke-test.js
