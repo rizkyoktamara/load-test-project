@@ -17,9 +17,9 @@ export const options = {
 const BASE = __ENV.BASE_URL || 'http://34.176.175.121:3000';
 
 export default function () {
-  const create = http.post(`${BASE}/notes`, JSON.stringify({ title: 't', body: 'b' }), { headers: { 'Content-Type': 'application/json' }});
+  const create = http.post(`${BASE}`, JSON.stringify({ title: 't', body: 'b' }), { headers: { 'Content-Type': 'application/json' }});
   check(create, { '201': r => r.status === 201 });
-  const list = http.get(`${BASE}/notes`);
+  const list = http.get(`${BASE}`);
   check(list, { '200': r => r.status === 200 });
   sleep(Math.random() * 0.5);
 }
